@@ -15,7 +15,7 @@ const canvasDotsBg = function () {
   canvas.style.display = 'block';
   // ctx.fillStyle = colorDot;
   // ctx.fillStyle = 'hsl(' + 360 * Math.random() + ', 50%, 50%)';
-  ctx.lineWidth = 0.3;
+  ctx.lineWidth = 0.5;
   ctx.strokeStyle = color;
 
   let mousePosition = {
@@ -28,49 +28,49 @@ const canvasDotsBg = function () {
 
   if (windowSize > 1600) {
     dots = {
-      nb: 100,
-      distance: 40,
-      d_radius: 200,
+      nb: 180,
+      distance: 50,
+      d_radius: 220,
       array: [],
     };
   } else if (windowSize > 1300) {
     dots = {
-      nb: 75,
-      distance: 35,
-      d_radius: 180,
+      nb: 140,
+      distance: 45,
+      d_radius: 200,
       array: [],
     };
   } else if (windowSize > 1100) {
     dots = {
-      nb: 50,
-      distance: 30,
-      d_radius: 160,
+      nb: 100,
+      distance: 40,
+      d_radius: 180,
       array: [],
     };
   } else if (windowSize > 800) {
     dots = {
-      nb: 40,
-      distance: 25,
+      nb: 80,
+      distance: 35,
+      d_radius: 160,
+      array: [],
+    };
+    ctx.globalAlpha = 0.9;
+  } else if (windowSize > 600) {
+    dots = {
+      nb: 60,
+      distance: 30,
       d_radius: 140,
       array: [],
     };
-    ctx.globalAlpha = 0.7;
-  } else if (windowSize > 600) {
+    ctx.globalAlpha = 0.8;
+  } else {
     dots = {
-      nb: 30,
-      distance: 20,
+      nb: 40,
+      distance: 25,
       d_radius: 120,
       array: [],
     };
-    ctx.globalAlpha = 0.6;
-  } else {
-    dots = {
-      nb: 20,
-      distance: 15,
-      d_radius: 100,
-      array: [],
-    };
-    ctx.globalAlpha = 0.5;
+    ctx.globalAlpha = 0.7;
   }
 
   // decided to turn off connecting dots under 1100px
@@ -105,7 +105,7 @@ const canvasDotsBg = function () {
     this.vx = -0.5 + Math.random();
     this.vy = -0.5 + Math.random();
 
-    this.radius = Math.random() * 1.5;
+    this.radius = Math.random() * 2;
 
     // this.colour = 'hsl(' + 360 * Math.random() + ', 50%, 50%)';
     this.colour = colorDot[Math.floor(Math.random() * colorDot.length)];
