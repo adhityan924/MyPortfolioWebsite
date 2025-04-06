@@ -1,4 +1,5 @@
 @use 'base' as *;
+@use 'sass:color';
 
 .contact {
   position: relative;
@@ -77,6 +78,15 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   height: 100%;
   gap: 2rem;
+  border-left: 4px solid $color-blue;
+
+  &:nth-child(2n) {
+    border-color: color.mix($color-blue, $color-red, 50%);
+  }
+
+  &:nth-child(3n) {
+    border-color: $color-red;
+  }
 
   &:hover {
     transform: translateY(-5px);
@@ -144,6 +154,7 @@
   background-color: $color-background-light;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid $color-red;
 }
 
 .resume-text {
