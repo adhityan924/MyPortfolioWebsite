@@ -18,6 +18,24 @@ window.onload = function () {
   skillItems.forEach(item => {
     item.classList.add('skills__item-fade-in');
   });
+  
+  // Set up contact card click handlers
+  const contactCards = document.querySelectorAll('.contact-card');
+  // Make all contact cards expanded by default
+  contactCards.forEach(card => {
+    card.classList.add('active');
+    card.addEventListener('click', function() {
+      // Toggle active class on the clicked card
+      this.classList.toggle('active');
+      
+      // Close other cards
+      contactCards.forEach(otherCard => {
+        if (otherCard !== this) {
+          otherCard.classList.remove('active');
+        }
+      });
+    });
+  });
 };
 
 // loads in about section on scroll
@@ -93,11 +111,13 @@ let observerNav = new IntersectionObserver(navFadeIn, options);
 
 observerNav.observe(document.querySelector('#hero'));
 observerNav.observe(document.querySelector('#about'));
+observerNav.observe(document.querySelector('#experience'));
 observerNav.observe(document.querySelector('#contact'));
 
 let observerNavProjects = new IntersectionObserver(navFadeInProjects, options2);
 
 observerNavProjects.observe(document.querySelector('#projects'));
+observerNavProjects.observe(document.querySelector('#academics'));
 
 // parralax scrolling effect on hero canvas
 

@@ -1,0 +1,156 @@
+@use 'base' as *;
+@use 'sass:color';
+
+.experience {
+  width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  @media (max-width: 1500px) {
+    width: 1100px;
+  }
+
+  @media (max-width: 1200px) {
+    width: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  &__heading {
+    position: relative;
+    margin-bottom: 5rem;
+    
+    &:before {
+      position: absolute;
+      content: '';
+      border-bottom: 18px solid $color-red;
+      width: 28rem;
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      left: 3.5rem;
+      top: 6.3rem;
+      z-index: -1;
+
+      @media (max-width: 770px) {
+        border-bottom: 14px solid $color-red;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5rem;
+  }
+}
+
+.job-card {
+  display: flex;
+  background-color: $color-background-light;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  border-left: 4px solid;
+
+  &--deutsche {
+    border-color: $color-blue;
+    
+    .job-card__logo {
+      background-color: #ffffff;
+    }
+  }
+
+  &--goyotta {
+    border-color: $color-red;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: $color-background;
+    width: 200px;
+    
+    @media (max-width: 900px) {
+      width: 100%;
+      padding: 1.5rem;
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 150px;
+      object-fit: contain;
+    }
+  }
+
+  &__details {
+    flex: 1;
+    padding: 2.5rem;
+  }
+
+  &__company {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: $color-red;
+  }
+
+  &__period {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+  }
+
+  &__position {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  &__location {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+  
+  &__responsibilities {
+    list-style-type: none;
+    padding: 0;
+    
+    li {
+      font-size: 1.5rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+      padding-left: 2rem;
+      position: relative;
+      
+      &:before {
+        content: "•";
+        color: $color-red;
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+} 
