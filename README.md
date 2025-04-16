@@ -1,5 +1,7 @@
 # 🚀 Welcome to Adhityan Arvind's Portfolio
 
+![Portfolio Banner](https://raw.githubusercontent.com/adhityan924/MyPortfolioWebsite/main/src/assets/propic.png)
+
 ## ✨ Overview
 
 This is my personal portfolio website showcasing my professional journey, projects, and skills as a software developer. The site features a modern, responsive design with interactive elements and a clean, professional aesthetic.
