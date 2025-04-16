@@ -21,9 +21,7 @@ window.onload = function () {
   
   // Set up contact card click handlers
   const contactCards = document.querySelectorAll('.contact-card');
-  // Make all contact cards expanded by default
   contactCards.forEach(card => {
-    card.classList.add('active');
     card.addEventListener('click', function() {
       // Toggle active class on the clicked card
       this.classList.toggle('active');
@@ -34,6 +32,22 @@ window.onload = function () {
           otherCard.classList.remove('active');
         }
       });
+      
+      // Adjust height transition for smoother animation
+      if (this.classList.contains('active')) {
+        // Get the height needed for the content
+        const info = this.querySelector('.contact-card__info');
+        const value = this.querySelector('.contact-card__value');
+        const link = this.querySelector('.contact-card__link');
+        if (value && link) {
+          const additionalHeight = value.offsetHeight + link.offsetHeight + 20; // 20px for margins
+          info.style.height = `${additionalHeight}px`;
+        }
+      } else {
+        // Reset height
+        const info = this.querySelector('.contact-card__info');
+        info.style.height = 'auto';
+      }
     });
   });
 };
